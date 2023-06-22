@@ -1,0 +1,44 @@
+.hero-container {
+  margin-top: 1.2em;
+}
+
+.btn-explore {
+  background-color: #FFD93D;
+  border: none;
+  color: black;
+}
+
+.btn-explore:hover {
+  background-color: #f7c600;
+  color: black;
+}
+
+.btn-explore:active {
+  background-color: #f7c600 !important;
+  color: black !important;
+}
+
+
+.headline {
+  text-align: center;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4em;
+}
+
+.kanan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gambar {
+  height: 20em;
+}

@@ -1,0 +1,19 @@
+.populer-container {
+  background-color: #FFD93D;
+  padding: 30px 80px;
+  border-radius: 12px;
+}
+
+.link-populer {
+  font-size: 12px;
+}
+
+.description h3 {
+  font-size: small;
+  font-weight: 600;
+}
+
+.description h1 {
+  font-weight: bolder;
+  line-height: 32px;
+}
