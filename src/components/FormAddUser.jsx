@@ -8,6 +8,8 @@ const FormAddUser = () => {
   const [password, setPassword] = useState("")
   const [confPassword, setConfPassword] = useState("")
   const [role, setRole] = useState("")
+  const [tanggalBayar, setTanggalBayar] = useState("tidak ada")
+  const [tagihan, setTagihan] = useState("tidak ada")
   const [msg, setMsg] = useState("")
   const navigate = useNavigate()
 
@@ -20,6 +22,8 @@ const FormAddUser = () => {
         password: password,
         confPassword: confPassword,
         role: role,
+        tanggalBayar: tanggalBayar,
+        tagihan: tagihan,
       })
       navigate("/users")
     } catch (error) {
@@ -95,7 +99,8 @@ const FormAddUser = () => {
                     >
                       <option value="admin">Admin</option>
                       <option value="user">User</option>
-                      <option value="premium">Premium</option>
+                      <option value="Premium">Premium</option>
+                      <option value="Basic">Basic</option>
                     </select>
                   </div>
                 </div>

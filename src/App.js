@@ -11,13 +11,16 @@ import LoginHome from "./components/LoginHome"
 import Home from "./pages/Bookoo/Home"
 import Premium from "./pages/Bookoo/Premium"
 import RegisterHome from "./components/RegisterHome"
+import StatusUser from "./pages/Bookoo/StatusUser"
+import Preview from "./pages/Preview"
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/users" element={<Users />} />
           <Route path="users/add" element={<AddUser />} />
@@ -25,10 +28,12 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/products/add" element={<AddProduct />} />
           <Route path="/products/edit/:id" element={<EditProduct />} />
+          <Route path="/products/preview/:id" element={<Preview />} />
           <Route path="/home" element={<Home />} />
           <Route path="/loginhome" element={<LoginHome />} />
           <Route path="/registerhome" element={<RegisterHome />} />
-          <Route path="/bookoo/premiumvideo" element={<Premium />} />
+          <Route path="/premiumvideo" element={<Premium />} />
+          <Route path="/statususer" element={<StatusUser />} />
         </Routes>
       </BrowserRouter>
     </div>

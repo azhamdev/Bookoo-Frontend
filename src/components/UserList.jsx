@@ -45,8 +45,8 @@ const UserList = () => {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>{user.role}</td>
-              <td></td>
-              <td></td>
+              <td>{user.tanggalBayar}</td>
+              <td>{user.tagihan}</td>
               <td>
                 <Link
                   to={`/users/edit/${user.uuid}`}

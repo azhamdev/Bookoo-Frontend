@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Layout from "./Layout"
 import { useDispatch, useSelector } from "react-redux"
-import { LogOut, reset } from "../../features/authSlice"
+import { LogOut, getMe, reset } from "../../features/authSlice"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 
@@ -10,11 +10,10 @@ const Premium = () => {
   const navigate = useNavigate()
   const { user } = useSelector((state) => state.auth)
 
-  const logout = () => {
-    dispatch(LogOut())
-    dispatch(reset())
-    navigate("/loginhome")
-  }
+  useEffect(() => {
+    dispatch(getMe())
+  }, [dispatch])
+
   return (
     <Layout>
       <h1>Premium Page</h1>

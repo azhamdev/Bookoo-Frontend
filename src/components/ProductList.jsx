@@ -21,7 +21,7 @@ const ProductList = () => {
   }
   return (
     <div>
-      <h1 className="title">Products</h1>
+      <h1 className="title mt-5">Products</h1>
       <h2 className="subtitle">List of Products</h2>
       <Link className="button is-primary mb-2" to={"/products/add"}>
         Add New
@@ -45,14 +45,20 @@ const ProductList = () => {
               <td>{product.user.name}</td>
               <td>
                 <Link
+                  to={`/products/preview/${product.uuid}`}
+                  className="button is-small is-success me-2"
+                >
+                  Preview
+                </Link>
+                <Link
                   to={`/products/edit/${product.uuid}`}
-                  className="button is-small is_info"
+                  className="button is-small is-info me-2"
                 >
                   Edit
                 </Link>
                 <button
                   onClick={() => deleteProduct(product.uuid)}
-                  className="button is-small is-dam=nge"
+                  className="button is-small is-danger"
                 >
                   Delete
                 </button>

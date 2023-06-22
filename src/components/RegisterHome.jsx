@@ -1,7 +1,7 @@
 import axios from "axios"
 import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 // import { LoginUser, reset } from "../features/authSlice"
 
 const RegisterHome = () => {
@@ -32,14 +32,16 @@ const RegisterHome = () => {
   }
 
   return (
-    <section className="hero has-background-grey-light is-fullheight is-fullwidth">
+    <section
+      style={{ backgroundColor: "#FFD93D" }}
+      className="hero is-fullheight is-fullwidth"
+    >
       <div className="hero-body">
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-4">
               <form onSubmit={saveUser} className="box">
-                <p className="has-text-centered">{msg}</p>
-                <h1 className="title is-2">Sign Up Home</h1>
+                <h1 className="title is-2">Sign Up</h1>
                 <div className="field">
                   <label className="label">Name</label>
                   <div className="control">
@@ -87,11 +89,17 @@ const RegisterHome = () => {
                       placeholder="******"
                     />
                   </div>
+                  <p className="has-text-centered" style={{ color: "red" }}>
+                    {msg}
+                  </p>
+                  <div className="mt-3">
+                    Sudah punya akun ? <Link to={"/loginhome"}>Login</Link>
+                  </div>
                 </div>
-                <div className="field mt-5">
+                <div className="field mt-2">
                   <button
                     type="submit"
-                    className="button is-success is-fullwidth"
+                    className="button is-primary is-fullwidth"
                   >
                     Daftar
                   </button>

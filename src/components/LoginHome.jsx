@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 import { LoginUser, reset } from "../features/authSlice"
+import Logo from "../Assets/Logo.png"
 
 const LoginHome = () => {
   const [email, setEmail] = useState("")
@@ -26,14 +27,18 @@ const LoginHome = () => {
   }
 
   return (
-    <section className="hero has-background-grey-light is-fullheight is-fullwidth">
+    <section
+      style={{ backgroundColor: "#FFD93D" }}
+      className="hero is-fullheight is-fullwidth"
+    >
       <div className="hero-body">
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-4">
               <form onSubmit={Auth} className="box">
-                {isError && <p className="has-text-centered">{message}</p>}
-                <h1 className="title is-2">Login Home</h1>
+                <h1 className="title is-2">
+                  <img src={Logo} />
+                </h1>
                 <div className="field">
                   <label className="label">Email</label>
                   <div className="control">
@@ -57,6 +62,11 @@ const LoginHome = () => {
                       placeholder="******"
                     />
                   </div>
+                  {isError && (
+                    <p className="has-text-centered" style={{ color: "red" }}>
+                      {message}
+                    </p>
+                  )}
                 </div>
                 <div className="register">
                   Belum punya akun ?{" "}

@@ -21,9 +21,9 @@ function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg mt-2">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             <img src={Logo} className="logoNav" />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -38,9 +38,9 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
               <li className="nav-item me-4">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Beranda
-                </a>
+                </Link>
               </li>
               <li className="nav-item me-4">
                 <a className="nav-link" href="#">
@@ -53,10 +53,7 @@ function Navbar() {
                 </a>
               </li>
               <li>
-                <Link
-                  className="nav-item nav-link me-4"
-                  to={"/bookoo/premiumvideo"}
-                >
+                <Link className="nav-item nav-link me-4" to={"/premiumvideo"}>
                   Premium Video
                 </Link>
               </li>
@@ -66,20 +63,27 @@ function Navbar() {
                 </a>
               </li>
               {user && (
-                <div class="dropdown">
+                <div className="dropdown">
                   <button
-                    class="btn dropdown-toggle"
+                    className="btn dropdown-toggle"
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Hai! {user && user.name}
+                    Hai!{" "}
+                    <strong style={{ fontWeight: "bold" }}>
+                      {user && user.name}
+                    </strong>
                   </button>
-                  <ul class="dropdown-menu">
+                  <ul className="dropdown-menu">
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <Link
+                        to={"/statususer"}
+                        className="dropdown-item"
+                        href="#"
+                      >
                         {user && user.role} User
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <button onClick={logout} className="dropdown-item">

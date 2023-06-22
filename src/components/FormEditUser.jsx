@@ -8,6 +8,8 @@ const FormEditUser = () => {
   const [password, setPassword] = useState("")
   const [confPassword, setConfPassword] = useState("")
   const [role, setRole] = useState("")
+  const [tanggalBayar, setTanggalBayar] = useState("")
+  const [tagihan, setTagihan] = useState("")
   const [msg, setMsg] = useState("")
   const navigate = useNavigate()
   const { id } = useParams()
@@ -21,6 +23,8 @@ const FormEditUser = () => {
         setPassword(response.data.password)
         setConfPassword(response.data.confPassword)
         setRole(response.data.role)
+        setTanggalBayar(response.data.tanggalBayar)
+        setTagihan(response.data.tagihan)
       } catch (error) {
         if (error.response) {
           setMsg(error.response.data.msg)
@@ -39,6 +43,8 @@ const FormEditUser = () => {
         password: password,
         confPassword: confPassword,
         role: role,
+        tanggalBayar: tanggalBayar,
+        tagihan: tagihan,
       })
       navigate("/users")
     } catch (error) {
@@ -118,6 +124,30 @@ const FormEditUser = () => {
                       <option value="Basic">Basic</option>
                     </select>
                   </div>
+                </div>
+              </div>
+              <div className="field">
+                <label className="label">Tanggal Bayar</label>
+                <div className="control">
+                  <input
+                    value={tanggalBayar}
+                    onChange={(e) => setTanggalBayar(e.target.value)}
+                    type="date"
+                    className="input"
+                    placeholder=""
+                  />
+                </div>
+              </div>
+              <div className="field">
+                <label className="label">Tanggal Tagihan</label>
+                <div className="control">
+                  <input
+                    value={tagihan}
+                    onChange={(e) => setTagihan(e.target.value)}
+                    type="date"
+                    className="input"
+                    placeholder=""
+                  />
                 </div>
               </div>
               <div className="field">
