@@ -16,7 +16,7 @@ const EditUser = () => {
 
   useEffect(() => {
     if (isError) {
-      navigate("/")
+      navigate("/admin")
     }
     if (user && user.role !== "admin") {
       navigate("/dashboard")

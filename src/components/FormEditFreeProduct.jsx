@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
 
-const FormAddProduct = () => {
+const FormEditFreeProduct = () => {
   const [name, setName] = useState("")
   const [author, setAuthor] = useState("")
   const [description, setDescription] = useState("")
@@ -13,10 +13,35 @@ const FormAddProduct = () => {
   const [transkrip, setTranskrip] = useState("")
   const [file, setFile] = useState("")
   const [preview, setPreview] = useState("")
-  const [msg, setMsg] = useState("")
+  // const [msg, setMsg] = useState("")
   const navigate = useNavigate()
+  const { id } = useParams()
 
-  const saveProduct = async (e) => {
+  useEffect(() => {
+    getProductById()
+    console.log(file)
+  }, [])
+
+  const getProductById = async () => {
+    const response = await axios.get(`http://localhost:5000/freeproducts/${id}`)
+    setName(response.data.name)
+    setAuthor(response.data.author)
+    setDescription(response.data.description)
+    setVideoUrl(response.data.videoUrl)
+    setAudioUrl(response.data.audioUrl)
+    setTranskrip(response.data.transkrip)
+    setFile(response.data.url)
+    setPreview(response.data.url)
+    // console.log(URL.createObjectURL(response.data.image))
+  }
+
+  const loadImage = (e) => {
+    const image = e.target.files[0]
+    setFile(image)
+    setPreview(URL.createObjectURL(image))
+  }
+
+  const updateProduct = async (e) => {
     e.preventDefault()
     const formData = new FormData()
     formData.append("title", name)
@@ -27,24 +52,15 @@ const FormAddProduct = () => {
     formData.append("transkrip", transkrip)
     formData.append("file", file)
     try {
-      await axios.post("http://localhost:5000/products", formData, {
+      await axios.patch(`http://localhost:5000/freeproducts/${id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
-      navigate("/products")
+      navigate("/freeproducts")
     } catch (error) {
-      if (error.response) {
-        setMsg(error.response.data.msg)
-      }
       console.log(error)
     }
-  }
-
-  const loadImage = (e) => {
-    const image = e.target.files[0]
-    setFile(image)
-    setPreview(URL.createObjectURL(image))
   }
 
   const modules = {
@@ -64,15 +80,12 @@ const FormAddProduct = () => {
 
   return (
     <div>
-      <h1 className="title">Products</h1>
-      <h2 className="subtitle">Add New Product</h2>
+      <h1 className="title mt-5">Products</h1>
+      <h2 className="subtitle">Edit Buku</h2>
       <div className="card is-shadowless">
         <div className="card-content">
           <div className="content">
-            <form onSubmit={saveProduct}>
-              <p className="has-text-centered" style={{ color: "red" }}>
-                {msg}
-              </p>
+            <form onSubmit={updateProduct}>
               <div className="field">
                 <label className="label">Name</label>
                 <div className="control">
@@ -180,7 +193,7 @@ const FormAddProduct = () => {
               </div>
               {preview ? (
                 <figure className="image is-128x128">
-                  <img src={preview} alt="Preview Image" />
+                  <img src={preview ? preview : null} alt="Preview Image" />
                 </figure>
               ) : (
                 ""
@@ -189,7 +202,7 @@ const FormAddProduct = () => {
               <div className="field">
                 <div className="control">
                   <button type="submit" className="button is-success">
-                    Save
+                    Update
                   </button>
                 </div>
               </div>
@@ -201,4 +214,4 @@ const FormAddProduct = () => {
   )
 }
 
-export default FormAddProduct
+export default FormEditFreeProduct

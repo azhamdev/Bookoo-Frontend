@@ -29,7 +29,6 @@ const StatusUser = () => {
         )
       })
     }
-
     showAlert()
   }
 
@@ -56,7 +55,7 @@ const StatusUser = () => {
             )}
             {user && user.role !== "Premium" && (
               <button onClick={handleSubmits} className="btn btn-success mt-3">
-                Mulai Berlangganan
+                Hubungi Admin untuk menjadi Premium
               </button>
             )}
           </div>

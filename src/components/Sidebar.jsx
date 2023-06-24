@@ -12,7 +12,7 @@ const Sidebar = () => {
   const logout = () => {
     dispatch(LogOut())
     dispatch(reset())
-    navigate("/")
+    navigate("/admin")
   }
   return (
     <div>
@@ -21,26 +21,31 @@ const Sidebar = () => {
         <ul className="menu-list">
           <li>
             <NavLink to={"/dashboard"}>
-              <IoHome />
+              <IoHome className="me-2" />
               Dashboard
             </NavLink>
           </li>
           <li>
             <NavLink to={"/products"}>
-              <IoVideocam />
+              <IoVideocam className="me-2" />
               Products
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/freeproducts"}>
+              <IoVideocam className="me-2" />
+              Free Contents
             </NavLink>
           </li>
         </ul>
 
-        {/* untuk spesifikasi fitur sesuai role  */}
         {user && user.role === "admin" && (
           <div>
-            <p className="menu-label">Administration</p>
+            <p className="menu-label mt-4">Administration</p>
             <ul className="menu-list">
               <li>
                 <NavLink to={"/users"}>
-                  <IoPerson />
+                  <IoPerson className="me-2" />
                   Users
                 </NavLink>
               </li>
@@ -51,7 +56,7 @@ const Sidebar = () => {
         <ul className="menu-list">
           <li>
             <button onClick={logout} className="button is-white">
-              <IoLogOut />
+              <IoLogOut className="me-2" />
               Logout
             </button>
           </li>

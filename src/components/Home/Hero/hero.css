@@ -1,5 +1,6 @@
 .hero-container {
-  margin-top: 1.2em;
+  margin-top: 2em;
+  height: 80vh;
 }
 
 .btn-explore {
@@ -22,7 +23,7 @@
 .headline {
   text-align: center;
   font-weight: bold;
-  font-size: xx-large;
+  color: black !important;
 }
 
 .title-container {

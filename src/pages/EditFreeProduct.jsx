@@ -1,12 +1,11 @@
 import React, { useEffect } from "react"
-import Layout from "./Layout"
-import FormEditProduct from "../components/FormEditProduct"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import FormEditFreeProduct from "../components/FormEditFreeProduct"
 import { getMe } from "../features/authSlice"
-import FormPreviewProduct from "../components/FormPreviewProduct"
+import Layout from "./Layout"
 
-const Preview = () => {
+const EditFreeProduct = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { isError } = useSelector((state) => state.auth)
@@ -17,14 +16,14 @@ const Preview = () => {
 
   useEffect(() => {
     if (isError) {
-      navigate("/")
+      navigate("/admin")
     }
   }, [isError, navigate])
   return (
     <Layout>
-      <FormPreviewProduct />
+      <FormEditFreeProduct />
     </Layout>
   )
 }
 
-export default Preview
+export default EditFreeProduct

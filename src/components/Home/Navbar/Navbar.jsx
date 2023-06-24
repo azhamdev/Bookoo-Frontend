@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from "react-redux"
 import { LogOut, reset } from "../../../features/authSlice"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import Popup from "reactjs-popup"
 
 function Navbar() {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const { user } = useSelector((state) => state.auth)
+  const navigate = useNavigate()
 
   const logout = () => {
     dispatch(LogOut())
@@ -43,20 +44,42 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item me-4">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to={"/perpustakaan"}>
                   Perpustakaan
-                </a>
+                </Link>
               </li>
               <li className="nav-item me-4">
                 <a className="nav-link" href="#">
                   Forum
                 </a>
               </li>
-              <li>
-                <Link className="nav-item nav-link me-4" to={"/premiumvideo"}>
-                  Premium Video
-                </Link>
-              </li>
+              {!user ? (
+                <Popup
+                  trigger={<a className="nav-link"> Premium Video</a>}
+                  position="right center"
+                >
+                  <div
+                    className="p-5 shadow-lg p-3 mb-5 bg-white"
+                    style={{
+                      backgroundColor: "#FFDE54",
+                      borderTopRightRadius: 40,
+                      borderBottomRightRadius: 20,
+                      borderBottomLeftRadius: 40,
+                      position: "absolute",
+                      top: 10,
+                      left: -15,
+                    }}
+                  >
+                    <p>Login dan Berlangganan untuk menjadi Premium User</p>
+                  </div>
+                </Popup>
+              ) : (
+                <li>
+                  <Link className="nav-item nav-link me-4" to={"/premiumvideo"}>
+                    Premium Video
+                  </Link>
+                </li>
+              )}
               <li className="nav-item me-4">
                 <a className="nav-link" href="#">
                   Blog

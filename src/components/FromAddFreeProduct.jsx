@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
 
-const FormAddProduct = () => {
+const FormAddFreeProduct = () => {
   const [name, setName] = useState("")
   const [author, setAuthor] = useState("")
   const [description, setDescription] = useState("")
@@ -27,12 +27,12 @@ const FormAddProduct = () => {
     formData.append("transkrip", transkrip)
     formData.append("file", file)
     try {
-      await axios.post("http://localhost:5000/products", formData, {
+      await axios.post("http://localhost:5000/freeproducts", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
-      navigate("/products")
+      navigate("/freeproducts")
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg)
@@ -64,8 +64,8 @@ const FormAddProduct = () => {
 
   return (
     <div>
-      <h1 className="title">Products</h1>
-      <h2 className="subtitle">Add New Product</h2>
+      <h1 className="title mt-5">Products</h1>
+      <h2 className="subtitle">Add New Free Product</h2>
       <div className="card is-shadowless">
         <div className="card-content">
           <div className="content">
@@ -97,20 +97,6 @@ const FormAddProduct = () => {
                   />
                 </div>
               </div>
-              {/* <div className="field">
-                <label className="label">Description</label>
-                <div className="control">
-                  <textarea
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    type="text"
-                    className="form-control"
-                    id="exampleFormControlTextarea1"
-                    rows="3"
-                    placeholder="Description"
-                  />
-                </div>
-              </div> */}
               <div className="field">
                 <label className="label">Description</label>
                 <div className="control">
@@ -201,4 +187,4 @@ const FormAddProduct = () => {
   )
 }
 
-export default FormAddProduct
+export default FormAddFreeProduct

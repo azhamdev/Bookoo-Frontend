@@ -9,10 +9,12 @@ function HeroSection() {
         <div className="col-lg-6">
           <div className="title-container">
             <p className="tagline">#12menitaja bikin kamu tambah pinter</p>
-            <h1 className="headline mb-4">
+            <h1 className="title headline mb-4">
               Dapatkan hiburan dan inspirasi dalam genggamanmu
             </h1>
-            <div className="btn btn-primary btn-explore">Mulai Sekarang</div>
+            <div className="btn btn-primary btn-explore mt-5">
+              Mulai Sekarang
+            </div>
           </div>
         </div>
         <div className="col-lg-6 kanan">

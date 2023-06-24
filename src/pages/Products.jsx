@@ -16,7 +16,7 @@ const Products = () => {
 
   useEffect(() => {
     if (isError) {
-      navigate("/")
+      navigate("/admin")
     }
   }, [isError, navigate])
   return (

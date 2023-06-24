@@ -5,6 +5,8 @@ import HeroSection from "../../components/Home/Hero/Hero"
 import Populer from "../../components/Home/Populer/Populer"
 import { getMe } from "../../features/authSlice"
 import Layout from "./Layout"
+import ReasonSection from "../../components/Home/Reason/ReasonSection"
+import Testimoni from "../../components/Home/Testimoni/Testimoni"
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -25,6 +27,8 @@ const Home = () => {
     <Layout>
       <HeroSection />
       <Populer />
+      <ReasonSection />
+      <Testimoni />
     </Layout>
   )
 }

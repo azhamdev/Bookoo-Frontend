@@ -11,7 +11,7 @@ const Navbar = () => {
   const logout = () => {
     dispatch(LogOut())
     dispatch(reset())
-    navigate("/")
+    navigate("/admin")
   }
   return (
     <div>

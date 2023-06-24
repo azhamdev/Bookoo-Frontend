@@ -8,12 +8,25 @@
   font-size: 12px;
 }
 
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
 .description h3 {
   font-size: small;
   font-weight: 600;
+  font-size: 1em;
 }
 
 .description h1 {
   font-weight: bolder;
   line-height: 32px;
+  font-size: 2em;
+}
+
+.display {
+  height: 100%;
 }

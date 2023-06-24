@@ -1,11 +1,11 @@
 import React, { useEffect } from "react"
-import Layout from "./Layout"
-import FormAddProduct from "../components/FormAddProduct"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import FreeProductList from "../components/FreeProductList"
 import { getMe } from "../features/authSlice"
+import Layout from "./Layout"
 
-const AddProduct = () => {
+const FreeProducts = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { isError } = useSelector((state) => state.auth)
@@ -21,9 +21,9 @@ const AddProduct = () => {
   }, [isError, navigate])
   return (
     <Layout>
-      <FormAddProduct />
+      <FreeProductList />
     </Layout>
   )
 }
 
-export default AddProduct
+export default FreeProducts

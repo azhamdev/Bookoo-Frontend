@@ -3,12 +3,12 @@ import Layout from "./Layout"
 import Welcome from "../components/Welcome"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { getMe } from "../features/authSlice"
+import { LogOut, getMe, reset } from "../features/authSlice"
 
 const Dashboard = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { isError } = useSelector((state) => state.auth)
+  const { isError, user } = useSelector((state) => state.auth)
 
   useEffect(() => {
     dispatch(getMe())
@@ -20,11 +20,25 @@ const Dashboard = () => {
     }
   }, [isError, navigate])
 
+  const logout = () => {
+    dispatch(LogOut())
+    dispatch(reset())
+    navigate("/admin")
+  }
+
   return (
     <div>
-      <Layout>
-        <Welcome />
-      </Layout>
+      {user && user.role === "admin" && (
+        <Layout>
+          <Welcome />
+        </Layout>
+      )}
+      <div>
+        <h1>ANDA BUKAN ADMIN!</h1>
+        <button onClick={logout} className="button is-white">
+          Logout
+        </button>
+      </div>
     </div>
   )
 }
