@@ -39,7 +39,7 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
               <li className="nav-item me-4">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link className="nav-link" aria-current="page" to="/">
                   Beranda
                 </Link>
               </li>
@@ -55,7 +55,7 @@ function Navbar() {
               </li>
               {!user ? (
                 <Popup
-                  trigger={<a className="nav-link"> Premium Video</a>}
+                  trigger={<a className="nav-link me-4"> Premium Video</a>}
                   position="right center"
                 >
                   <div
@@ -74,16 +74,16 @@ function Navbar() {
                   </div>
                 </Popup>
               ) : (
-                <li>
-                  <Link className="nav-item nav-link me-4" to={"/premiumvideo"}>
+                <li className="nav-item me-4">
+                  <Link className="nav-link" to={"/premiumvideo"}>
                     Premium Video
                   </Link>
                 </li>
               )}
               <li className="nav-item me-4">
-                <a className="nav-link" href="#">
+                <Link to={"/blog"} className="nav-link">
                   Blog
-                </a>
+                </Link>
               </li>
               {user && (
                 <div className="dropdown">

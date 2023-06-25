@@ -2,6 +2,7 @@ import React from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { LogOut, reset } from "../features/authSlice"
+import Logo from "../Assets/Logo.png"
 
 const Navbar = () => {
   const dispatch = useDispatch()
@@ -22,11 +23,7 @@ const Navbar = () => {
       >
         <div className="navbar-brand">
           <NavLink to={"/dashboard"} className="navbar-item">
-            <img
-              src="https://bulma.io/images/bulma-logo.png"
-              width="112"
-              height="28"
-            />
+            <img src={Logo} width="112" height="28" />
           </NavLink>
 
           <a

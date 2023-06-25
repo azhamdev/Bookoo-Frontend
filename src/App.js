@@ -19,6 +19,11 @@ import DetailVideo from "./pages/Bookoo/DetailVideo"
 import Perpustakaan from "./pages/Bookoo/Perpustakaan"
 import DetailFreeVideo from "./pages/Bookoo/DetailFreeVideo"
 import PremiumStatus from "./pages/Bookoo/PremiumStatus"
+import Article from "./pages/Article"
+import AddArticle from "./pages/AddArticle"
+import EditArticle from "./pages/EditArticle"
+import Blog from "./pages/Bookoo/Blog"
+import DetailBlog from "./pages/Bookoo/DetailBlog"
 
 function App() {
   return (
@@ -37,6 +42,15 @@ function App() {
           <Route path="/freeproducts/add" element={<AddFreeProduct />} />
           <Route path="/freeproducts/edit/:id" element={<EditFreeProduct />} />
           <Route path="/detailfreevideo/:name/:id" element={<DetailFreeVideo />} />
+
+          <Route path="/articles" element={<Article />} />
+          <Route path="/articles/add" element={<AddArticle />} />
+          <Route path="/articles/edit/:id" element={<EditArticle />} />
+          {/* <Route path="/detailarticle/:name/:id" element={<DetailFreeVideo />} /> */}
+
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:name/:id" element={<DetailBlog />} />
+
 
           <Route path="/products" element={<Products />} />
           <Route path="/products/add" element={<AddProduct />} />

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import axios from "axios"
 import "./Styles/Styles.css"
+import Promo from "../../components/Promo"
 
 const Premium = () => {
   const dispatch = useDispatch()
@@ -16,7 +17,6 @@ const Premium = () => {
   const getProducts = async () => {
     const response = await axios.get("http://localhost:5000/products")
     setProducts(response.data)
-    console.log(response.data)
   }
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const Premium = () => {
           </div>
         )}
       </div>
-      {user && user.role !== "Premium" && <h1>Konten Premium</h1>}
+      {user && user.role !== "Premium" && <Promo />}
     </Layout>
   )
 }

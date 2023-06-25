@@ -34,7 +34,7 @@ const StatusUser = () => {
 
   return (
     <Layout>
-      <div className="container">
+      <div className="container" style={{ minHeight: "100vh" }}>
         <div className="row">
           <div className="col-lg-10">
             <h1 style={{ fontSize: 28 }}>{user && user.name}</h1>
